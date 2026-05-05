@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#1a2744">
+<title>PRESS — Making the Soul Happy in God</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:     #1a2744;
+    --navy2:    #1e2f55;
+    --accent:   #2C4A6E;
+    --gold:     #B8963E;
+    --gold-lt:  #C9A84C;
+    --gold-dim: #8a6e32;
+    --cream:    #F7F3EC;
+    --cream2:   #EDE7D9;
+    --black:    #1A1A1A;
+    --grey:     #555555;
+    --grey-lt:  #888888;
+    --white:    #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  html, body {
+    height: 100%;
+    background: var(--navy);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    color: var(--black);
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--navy);
+    padding: 18px 20px 14px;
+    text-align: center;
+    position: relative;
+  }
+
+  .header::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin-top: 14px;
+  }
+
+  .header-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .header-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: 8px;
+    line-height: 1;
+    margin-bottom: 5px;
+  }
+
+  .header-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--gold-lt);
+    line-height: 1.4;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  /* ── BODY ── */
+  .body {
+    background: var(--cream);
+    min-height: calc(100vh - 120px);
+    padding: 0 0 24px;
+  }
+
+  /* ── STEPS ── */
+  .steps {
+    padding: 0 16px;
+  }
+
+  .step {
+    padding: 16px 0 12px;
+    border-bottom: 1px solid var(--cream2);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .step:last-of-type { border-bottom: none; }
+
+  .step-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 0;
+  }
+
+  .step-letter {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1;
+    min-width: 28px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .step-title-block { flex: 1; }
+
+  .step-word {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--black);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 2px;
+  }
+
+  .step-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--grey);
+    line-height: 1.4;
+  }
+
+  .step-chevron {
+    color: var(--gold-dim);
+    font-size: 18px;
+    line-height: 1;
+    margin-top: 4px;
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+  }
+
+  .step.open .step-chevron { transform: rotate(180deg); }
+
+  .step-body {
+    display: none;
+    padding-top: 10px;
+    padding-left: 40px;
+  }
+
+  .step.open .step-body { display: block; }
+
+  .step-verse {
+    border-left: 2.5px solid var(--gold);
+    padding: 6px 10px;
+    margin-bottom: 8px;
+    background: rgba(184,150,62,0.07);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .step-verse-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: #2A2A2A;
+    line-height: 1.6;
+    margin-bottom: 3px;
+  }
+
+  .step-verse-ref {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.5px;
+  }
+
+  .step-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--black);
+  }
+
+  /* ── CLOSING ── */
+  .closing {
+    margin: 6px 16px 0;
+    padding: 16px;
+    background: var(--navy);
+    border-radius: 4px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .closing::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .closing-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--gold-lt);
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+
+  .closing-q {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+
+  .closing-anchor {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    font-style: italic;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.5;
+  }
+
+  /* ── EXPAND ALL TOGGLE ── */
+  .controls {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 16px 0;
+  }
+
+  .toggle-all {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px 0;
+  }
+
+  .toggle-all:hover { color: var(--gold); }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--navy);
+    text-align: center;
+    padding: 12px;
+    margin-top: 0;
+  }
+
+  .footer::before {
+    content: '';
+    display: block;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+    margin-bottom: 10px;
+  }
+
+  .footer-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 10px;
+    font-style: italic;
+    color: var(--gold-dim);
+    letter-spacing: 0.5px;
+  }
+
+  /* ── DESKTOP CENTERING ── */
+  @media (min-width: 600px) {
+    .card-wrap {
+      max-width: 480px;
+      margin: 0 auto;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.5);
+      min-height: 100vh;
+      background: var(--cream);
+    }
+    .body { min-height: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card-wrap">
+  <div class="header">
+    <div class="header-eyebrow">The Quest — Daily Practice</div>
+    <div class="header-title">PRESS</div>
+    <div class="header-sub">Making the Soul Happy in God — The First Work of Every Day</div>
+  </div>
+
+  <div class="body">
+    <div class="controls">
+      <button class="toggle-all" onclick="toggleAll()" id="toggle-btn">Expand All</button>
+    </div>
+
+    <div class="steps">
+
+      <!-- P -->
+      <div class="step" id="step-p" onclick="toggle('p')">
+        <div class="step-header">
+          <div class="step-letter">P</div>
+          <div class="step-title-block">
+            <div class="step-word">Pour Out</div>
+            <div class="step-tagline">Bring what is actually there, not what you think should be there.</div>
+          </div>
+          <div class="step-chevron">&#8964;</div>
+        </div>
+        <div class="step-body">
+          <div class="step-verse">
+            <div class="step-verse-text">&ldquo;Pour out your heart before Him; God is a refuge for us.&rdquo;</div>
+            <div class="step-verse-ref">— Psalm 62:8 (LSB)</div>
+          </div>
+          <div class="step-text">Before anything else, bring what is actually in you. The cold heart. The distracted mind. The unfinished worries. He already knows. Coming honestly is the first act of trust.</div>
+        </div>
+      </div>
+
+      <!-- R -->
+      <div class="step" id="step-r" onclick="toggle('r')">
+        <div class="step-header">
+          <div class="step-letter">R</div>
+          <div class="step-title-block">
+            <div class="step-word">Remember</div>
+            <div class="step-tagline">Before I bring my needs, I bring my worship.</div>
+          </div>
+          <div class="step-chevron">&#8964;</div>
+        </div>
+        <div class="step-body">
+          <div class="step-verse">
+            <div class="step-verse-text">&ldquo;Bless the LORD, O my soul, and all that is within me, bless His holy name. Forget none of His benefits.&rdquo;</div>
+            <div class="step-verse-ref">— Psalm 103:1–2 (LSB)</div>
+          </div>
+          <div class="step-text">A Psalm. A hymn. One truth about who He is, held before everything else. Worship is not the warm-up. It is the orientation that makes everything after it right.</div>
+        </div>
+      </div>
+
+      <!-- E -->
+      <div class="step" id="step-e" onclick="toggle('e')">
+        <div class="step-header">
+          <div class="step-letter">E</div>
+          <div class="step-title-block">
+            <div class="step-word">Eat</div>
+            <div class="step-tagline">Read to find Him, not to finish.</div>
+          </div>
+          <div class="step-chevron">&#8964;</div>
+        </div>
+        <div class="step-body">
+          <div class="step-verse">
+            <div class="step-verse-text">&ldquo;Your words were found and I ate them, and Your words became for me a joy and the delight of my heart.&rdquo;</div>
+            <div class="step-verse-ref">— Jeremiah 15:16 (LSB)</div>
+          </div>
+          <div class="step-text">Stay where something moves. Ask why it moves you. Not information, but encounter. It could come as increased clarity, stronger desire, depth of peace, Truth affecting your heart, sin convicting, internal steadiness, real gladness, great joy. The response is His to give.</div>
+        </div>
+      </div>
+
+      <!-- S1 -->
+      <div class="step" id="step-s1" onclick="toggle('s1')">
+        <div class="step-header">
+          <div class="step-letter">S</div>
+          <div class="step-title-block">
+            <div class="step-word">Speak</div>
+            <div class="step-tagline">Let what I just read become what I say back to Him.</div>
+          </div>
+          <div class="step-chevron">&#8964;</div>
+        </div>
+        <div class="step-body">
+          <div class="step-verse">
+            <div class="step-verse-text">&ldquo;In everything by prayer and petition with thanksgiving let your requests be made known to God.&rdquo;</div>
+            <div class="step-verse-ref">— Philippians 4:6 (LSB)</div>
+          </div>
+          <div class="step-text">Respond to what He just said. Worship what His character reveals. Confess what it exposes. Ask for what it promises. The Word and prayer are one conversation.</div>
+        </div>
+      </div>
+
+      <!-- S2 -->
+      <div class="step" id="step-s2" onclick="toggle('s2')">
+        <div class="step-header">
+          <div class="step-letter">S</div>
+          <div class="step-title-block">
+            <div class="step-word">Stay</div>
+            <div class="step-tagline">Don&rsquo;t leave when I have technically done something.</div>
+          </div>
+          <div class="step-chevron">&#8964;</div>
+        </div>
+        <div class="step-body">
+          <div class="step-verse">
+            <div class="step-verse-text">&ldquo;Wait for the LORD; be strong and let your heart take courage; yes, wait for the LORD.&rdquo;</div>
+            <div class="step-verse-ref">— Psalm 27:14 (LSB)</div>
+          </div>
+          <div class="step-text">Stay until the heart is actually glad in Him. Go back through P&ndash;R&ndash;E&ndash;S again if needed, each time with a warmer heart and more capacity for deeper connection. This is the hardest step and the most important one.</div>
+        </div>
+      </div>
+
+    </div><!-- /steps -->
+
+    <div class="closing">
+      <div class="closing-main">The goal is not completion. It is gladness in Him.</div>
+      <div class="closing-q">Did I leave with my soul more glad in God than when I arrived?</div>
+      <div class="closing-anchor"><em>I press in until I can press in, and then I press in.</em></div>
+    </div>
+
+  </div><!-- /body -->
+
+  <div class="footer">
+    <div class="footer-text">The Quest &nbsp;&bull;&nbsp; I Must Press In</div>
+  </div>
+</div>
+
+<script>
+  function toggle(id) {
+    const el = document.getElementById('step-' + id);
+    const wasOpen = el.classList.contains('open');
+    el.classList.toggle('open');
+    updateToggleBtn();
+  }
+
+  function toggleAll() {
+    const steps = document.querySelectorAll('.step');
+    const anyOpen = [...steps].some(s => s.classList.contains('open'));
+    steps.forEach(s => {
+      if (anyOpen) s.classList.remove('open');
+      else s.classList.add('open');
+    });
+    updateToggleBtn();
+  }
+
+  function updateToggleBtn() {
+    const steps = document.querySelectorAll('.step');
+    const anyOpen = [...steps].some(s => s.classList.contains('open'));
+    document.getElementById('toggle-btn').textContent = anyOpen ? 'Collapse All' : 'Expand All';
+  }
+</script>
+</body>
+</html>
